@@ -1,7 +1,8 @@
 let place = document.querySelector(".container .row")
-
+let button = document.getElementById("button")
 axios.get("https://api.tvmaze.com/shows")
     .then(res => {
+        console.log(res);
 
         for (i = 0; i < res.data.length; i++) {
             place.innerHTML += `<div class="col-3">
@@ -17,9 +18,12 @@ axios.get("https://api.tvmaze.com/shows")
                     <li class="list-group-item">Language: ${res.data[i].language}</li>
                 </ul>
                 <div class="card-body">
-                    <a class="btn btn-primary" target="_blank" href="${res.data[i].url}" role="button">Go to website</a>
-                    <a class="btn btn-success" target="_blank" href="" role="button">Go to detail</a>
+                    <a class="btn btn-primary" target="_blank" href="${res.data[i].officialSite}" role="button">Go to website</a>
+                    <a class="btn btn-success" id="btn" target="_blank" href="index2.html" role="button">Go to detail</a>
                 </div>
             </div>`
+
         }
     })
+
+
